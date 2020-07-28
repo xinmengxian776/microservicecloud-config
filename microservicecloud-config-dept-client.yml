@@ -1,0 +1,170 @@
+spring: 
+ profiles:
+  active:
+    - dev
+---
+server:
+  #指定（当前服务的端口号）
+  port: 8001
+      
+    
+   
+spring:
+ #指定（选举策略配置项）如果说选举的策略是dev 表示：当前是开发环境
+ profiles: dev
+ 
+ application:
+  # 《指定（当前服务上下文名称）》
+  name: microservicecloud-config-dept-client 
+  
+  
+ # 配置（数据源信息）
+ datasource:
+  # 当前数据源操作类型
+  type: com.alibaba.druid.pool.DruidDataSource
+  # mysql驱动包
+  driver-class-name: org.gjt.mm.mysql.Driver
+  # 数据库名称
+  url: jdbc:mysql://localhost:3306/cloudDB01
+  username: root
+  password: 123456
+  
+  dbcp2:
+   # 数据库连接池的最小维持连接数
+   min-idle: 5
+   # 初始化连接数
+   initial-size: 5
+   # 最大连接数
+   max-total: 5
+   # 等待连接获取的最大超时时间
+   max-wait-millis: 200
+   
+   
+   
+#（MyBatis的相关配置） 
+mybatis:
+  # 指定（mybatis配置文件所在的路径）
+  config-location: classpath:mybatis/mybatis.cfg.xml
+  # 指定（所有Entity别名类所在包）
+  type-aliases-package: com.atguigu.springcloud.entites
+  # 指定（mapper映射文件）【批量扫描/mapper目录 下的 mapper映射文件】
+  mapper-locations:
+  - classpath:mybatis/mapper/**/*.xml
+   
+   
+   
+
+#（Euerka-Client端相关的配置）
+eureka:
+ #（将（当前微服务）注册进Eureka服务列表内）
+ client:
+  #（指定 当前  EurekaServer注册中心的交互的地址）
+  service-url: 
+    defaultZone: http://eureka7001.com:7001/eureka/
+    
+ #（配置  当前微服务的实例信息） 
+ instance:
+    #（指定（当前微服务）在入驻进Eureka注册中心内的（标识Id））
+    instance-id: dept-8001.com
+    #（设置 （Eureka注册中心内的（标识Id））的 访问路劲可以显示IP地址）
+    prefer-ip-address: true
+   
+
+
+
+
+
+
+#配置（针对当前微服务的（info）描述），【也就是追加当前微服务的相关信息的描述】，(这里是key value的形式)，最后（传输前端的是json数据）
+info:
+   app.name: atguigu-microservicecloud-springcloudconfig01
+   company.name: www.atguigu.com
+   
+   #《这里的build 就对应（父工程 pom文件）中的 <build>下的的内容》
+   #【注意！$$ 格式就好比EL表达式，可以自动的去解读，与解析 相关的内容】 
+   build.artifactId: $project.artifactId$
+   build.version: $project.version$
+   
+---
+server:
+  #指定（当前服务的端口号）
+  port: 8001
+      
+    
+   
+spring:
+ #指定（选举策略配置项）如果说选举的策略是test 表示：当前是测试环境
+ profiles: test
+ 
+ application:
+  # 《指定（当前服务上下文名称）》
+  name: microservicecloud-config-dept-client 
+  
+  
+ # 配置（数据源信息）
+ datasource:
+  # 当前数据源操作类型
+  type: com.alibaba.druid.pool.DruidDataSource
+  # mysql驱动包
+  driver-class-name: org.gjt.mm.mysql.Driver
+  # 数据库名称
+  url: jdbc:mysql://localhost:3306/cloudDB02
+  username: root
+  password: 123456
+  
+  dbcp2:
+   # 数据库连接池的最小维持连接数
+   min-idle: 5
+   # 初始化连接数
+   initial-size: 5
+   # 最大连接数
+   max-total: 5
+   # 等待连接获取的最大超时时间
+   max-wait-millis: 200
+   
+   
+   
+#（MyBatis的相关配置） 
+mybatis:
+  # 指定（mybatis配置文件所在的路径）
+  config-location: classpath:mybatis/mybatis.cfg.xml
+  # 指定（所有Entity别名类所在包）
+  type-aliases-package: com.atguigu.springcloud.entites
+  # 指定（mapper映射文件）【批量扫描/mapper目录 下的 mapper映射文件】
+  mapper-locations:
+  - classpath:mybatis/mapper/**/*.xml
+   
+   
+   
+
+#（Euerka-Client端相关的配置）
+eureka:
+ #（将（当前微服务）注册进Eureka服务列表内）
+ client:
+  #（指定 当前  EurekaServer注册中心的交互的地址）
+  service-url: 
+    defaultZone: http://eureka7001.com:7001/eureka/
+    
+ #（配置  当前微服务的实例信息） 
+ instance:
+    #（指定（当前微服务）在入驻进Eureka注册中心内的（标识Id））
+    instance-id: dept-8001.com
+    #（设置 （Eureka注册中心内的（标识Id））的 访问路劲可以显示IP地址）
+    prefer-ip-address: true
+   
+
+
+
+
+
+
+#配置（针对当前微服务的（info）描述），【也就是追加当前微服务的相关信息的描述】，(这里是key value的形式)，最后（传输前端的是json数据）
+info:
+   app.name: atguigu-microservicecloud-springcloudconfig02
+   company.name: www.atguigu.com
+   
+   #《这里的build 就对应（父工程 pom文件）中的 <build>下的的内容》
+   #【注意！$$ 格式就好比EL表达式，可以自动的去解读，与解析 相关的内容】 
+   build.artifactId: $project.artifactId$
+   build.version: $project.version$
+
