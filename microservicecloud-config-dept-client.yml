@@ -2,25 +2,19 @@ spring:
  profiles:
   active:
     - dev
---- 
 
-
-
-
-
-
-
+---
 server:
   #指定（当前服务的端口号）
   port: 8001
       
     
    
-spring:
+spring: 
  #指定（选举策略配置项）如果说选举的策略是dev 表示：当前是开发环境
  profiles: dev
  
- application:
+ application: 
   # 《指定（当前服务上下文名称）》
   name: microservicecloud-config-dept-client 
   
@@ -59,7 +53,6 @@ mybatis:
   - classpath:mybatis/mapper/**/*.xml
    
    
-   
 
 #（Euerka-Client端相关的配置）
 eureka:
@@ -92,17 +85,7 @@ info:
    build.artifactId: $project.artifactId$
    build.version: $project.version$
    
-   
 ---
-
-
-
-
-
-
-
-
-
 server:
   #指定（当前服务的端口号）
   port: 8001
@@ -150,8 +133,6 @@ mybatis:
   # 指定（mapper映射文件）【批量扫描/mapper目录 下的 mapper映射文件】
   mapper-locations:
   - classpath:mybatis/mapper/**/*.xml
-   
-   
    
 
 #（Euerka-Client端相关的配置）
