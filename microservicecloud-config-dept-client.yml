@@ -71,10 +71,6 @@ eureka:
    
 
 
-
-
-
-
 #配置（针对当前微服务的（info）描述），【也就是追加当前微服务的相关信息的描述】，(这里是key value的形式)，最后（传输前端的是json数据）
 info:
    app.name: atguigu-microservicecloud-springcloudconfig01
@@ -90,7 +86,6 @@ server:
   #指定（当前服务的端口号）
   port: 8001
       
-    
    
 spring:
  #指定（选举策略配置项）如果说选举的策略是test 表示：当前是测试环境
@@ -149,11 +144,6 @@ eureka:
     instance-id: dept-8001.com
     #（设置 （Eureka注册中心内的（标识Id））的 访问路劲可以显示IP地址）
     prefer-ip-address: true
-   
-
-
-
-
 
 
 #配置（针对当前微服务的（info）描述），【也就是追加当前微服务的相关信息的描述】，(这里是key value的形式)，最后（传输前端的是json数据）
