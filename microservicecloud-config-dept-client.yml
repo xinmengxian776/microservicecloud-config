@@ -25,7 +25,7 @@ spring:
   # mysql驱动包
   driver-class-name: org.gjt.mm.mysql.Driver
   # 数据库名称
-  url: jdbc:mysql://localhost:3306/cloudDB01
+  url: jdbc:mysql://localhost:3306/cloudDB03
   username: root
   password: 123456
   
@@ -77,7 +77,7 @@ eureka:
 
 #配置（针对当前微服务的（info）描述），【也就是追加当前微服务的相关信息的描述】，(这里是key value的形式)，最后（传输前端的是json数据）
 info:
-   app.name: atguigu-microservicecloud-springcloudconfig01
+   app.name: atguigu-microservicecloud-springcloudconfig03
    company.name: www.atguigu.com
    
    #《这里的build 就对应（父工程 pom文件）中的 <build>下的的内容》
